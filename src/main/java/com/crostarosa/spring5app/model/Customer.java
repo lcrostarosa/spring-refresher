@@ -2,14 +2,14 @@ package com.crostarosa.spring5app.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "customer")
 @Data
 public class Customer {
+
+    private Customer(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
