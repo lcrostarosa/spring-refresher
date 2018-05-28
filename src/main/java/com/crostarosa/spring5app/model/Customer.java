@@ -2,6 +2,8 @@ package com.crostarosa.spring5app.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,6 +21,7 @@ public class Customer {
 
     public Customer() {
     }
+
 
     public Long getId() {
         return id;

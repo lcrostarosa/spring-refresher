@@ -3,17 +3,14 @@ package com.crostarosa.spring5app.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "purchase_order")
 public class Order {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private Integer total;
+    private String name;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinTable(name = "customer")
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
@@ -28,12 +25,12 @@ public class Order {
         this.id = id;
     }
 
-    public Integer getTotal() {
-        return total;
+    public String getName() {
+        return name;
     }
 
-    public void setTotal(Integer total) {
-        this.total = total;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Customer getCustomer() {
