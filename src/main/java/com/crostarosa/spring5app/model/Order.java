@@ -1,33 +1,46 @@
 package com.crostarosa.spring5app.model;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "order")
-@Data
 public class Order {
-
-    private Order(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
 
-//    @OneToMany
-//    @JoinTable(name = "order_item", joinColumns = @JoinColumn(name = "id"))
-//    private Set<OrderItem> orderItems;
-//
-//    @ManyToOne()
-//    @JoinTable(name = "customer", joinColumns = @JoinColumn(name = "id"))
-//    private Customer shipTo;
-//
-//    @ManyToOne()
-//    @JoinTable(name = "customer", joinColumns = @JoinColumn(name = "id"))
-//    private Customer billTo;
+    private Integer total;
 
-    private Boolean isFulfilled;
-    private Boolean isShipped;
-    private Boolean isDelivered;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(name = "customer")
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    public Order() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 }
