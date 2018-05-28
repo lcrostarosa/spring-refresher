@@ -17,11 +17,10 @@ public class Customer {
     private Date created;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Order> orders;
+    private Set<Order> orders = new HashSet<>();
 
     public Customer() {
     }
-
 
     public Long getId() {
         return id;
