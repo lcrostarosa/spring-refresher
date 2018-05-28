@@ -5,19 +5,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "purchase_order")
-public class Order {
+@Table(name = "products")
+public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private Double cost;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
-
-    public Order() {
+    public Product() {
     }
 
     public Long getId() {
@@ -36,11 +33,11 @@ public class Order {
         this.name = name;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Double getCost() {
+        return cost;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCost(Double cost) {
+        this.cost = cost;
     }
 }

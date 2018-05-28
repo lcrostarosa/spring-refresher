@@ -36,9 +36,9 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         customerOrder.setCustomer(joe);
 
         joe.getOrders().add(customerOrder);
-
-        customerRepository.save(joe);
-        orderRepository.save(customerOrder);
+//
+//        customerRepository.save(joe);
+//        orderRepository.save(customerOrder);
 
     }
 
